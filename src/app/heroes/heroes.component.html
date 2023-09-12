@@ -1,0 +1,18 @@
+<h2>Az én hőseim</h2>
+
+<div>
+    <label for="new-hero">Hős neve: </label>
+    <input id="new-hero" #heroName />
+    <button type="button" class="add-button" (click)="add(heroName.value);heroName.value=''">
+        Hős hozzáadása
+    </button>
+</div>
+
+<ul class="heroes">
+    <li *ngFor="let hero of heroes">
+        <a routerLink="/detail/{{hero.id}}">
+            <span class="badge">{{hero.id}}</span> {{hero.name}}
+        </a>
+        <button type="button" class="delete" title="Hős törlése" (click)="delete(hero)">x</button>
+    </li>
+</ul>
